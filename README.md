@@ -1,2 +1,2 @@
-# leaderboard
-A leaderboard project for asynchronous functions
+# webpack-template
+A webpack template to start with
