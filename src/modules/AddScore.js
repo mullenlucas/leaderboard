@@ -13,6 +13,6 @@ const addScore = () => {
   });
   name.value = '';
   score.value = '';
-}
+};
 
 export default addScore;

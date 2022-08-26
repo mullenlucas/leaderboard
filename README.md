@@ -33,7 +33,7 @@ All the necessary packages will be installed with the command above
 
 ## Initialization
 
-The creation of the game ID was accomplished running the following code:
+The creation of the game ID was accomplished running the following code in a web-browser console:
 
 ```
 fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games', {

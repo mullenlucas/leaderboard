@@ -18,7 +18,7 @@ class Scores {
   }
 
   cleanScores() {
-    this.Scores = []
+    this.Scores = [];
   }
 
   changeVal(ind, val) {

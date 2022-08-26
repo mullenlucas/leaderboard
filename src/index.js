@@ -10,7 +10,7 @@ const scoresCl = new Scores();
 // Declare main html element variables
 const ulScores = document.getElementById('score-list');
 const refBtn = document.getElementById('ref-btn');
-const addScoreBtn = document.getElementById('btn-sub')
+const addScoreBtn = document.getElementById('btn-sub');
 
 const getScoring = async () => {
   scoresCl.cleanScores();
@@ -19,31 +19,31 @@ const getScoring = async () => {
   data.result.forEach((el) => {
     scoresCl.allScores.push(el);
   });
-}
+};
 
 const shadowInterval = () => {
   scoresCl.allScores.forEach((s, i) => {
     const ids = document.getElementById(`id${i}`);
     if (i % 2 === 0) { ids.style.backgroundColor = 'rgba(255, 229, 111, 0.6)'; }
   });
-}
+};
 
 const displayScores = async () => {
   await getScoring();
   ulScores.innerHTML = '';
   scoresCl.allScores.forEach((e, i) => {
     const li = document.createElement('li');
-    li.setAttribute('id', `id${i}`)
+    li.setAttribute('id', `id${i}`);
     li.innerText = `${e.user}: ${e.score}`;
     ulScores.appendChild(li);
   });
-  shadowInterval()
+  shadowInterval();
 };
 
-displayScores()
-refBtn.addEventListener('click', displayScores)
+displayScores();
+refBtn.addEventListener('click', displayScores);
 
 addScoreBtn.addEventListener('click', (ev) => {
   ev.preventDefault();
-  addScore()
+  addScore();
 });
