@@ -1,28 +1,49 @@
 import './style.css';
 import Scores from './modules/Scores.js';
+import addScore from './modules/AddScore.js';
+
+// game ID: TSK9ITkTv5Aof6D0OyN3
 
 // Initiate Scores class
 const scoresCl = new Scores();
 
-const addScore = (sc, v, i) => {
-  scoresCl.newScore(sc, v, i);
-  const ulScores = document.getElementById('score-list');
-  const li = document.createElement('li');
-  li.setAttribute('id', `id${i}`);
-  li.innerText = `${sc}: ${v}`;
-  ulScores.appendChild(li);
+// Declare main html element variables
+const ulScores = document.getElementById('score-list');
+const refBtn = document.getElementById('ref-btn');
+const addScoreBtn = document.getElementById('btn-sub')
+
+const getScoring = async () => {
+  scoresCl.cleanScores();
+  const resp = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/TSK9ITkTv5Aof6D0OyN3/scores');
+  const data = await resp.json();
+  data.result.forEach((el) => {
+    scoresCl.allScores.push(el);
+  });
+}
+
+const shadowInterval = () => {
+  scoresCl.allScores.forEach((s, i) => {
+    const ids = document.getElementById(`id${i}`);
+    if (i % 2 === 0) { ids.style.backgroundColor = 'rgba(255, 229, 111, 0.6)'; }
+  });
+}
+
+const displayScores = async () => {
+  await getScoring();
+  ulScores.innerHTML = '';
+  scoresCl.allScores.forEach((e, i) => {
+    const li = document.createElement('li');
+    li.setAttribute('id', `id${i}`)
+    li.innerText = `${e.user}: ${e.score}`;
+    ulScores.appendChild(li);
+  });
+  shadowInterval()
 };
 
-addScore('mario', 99, 1);
-addScore('alan', 101, 2);
-addScore('luigi', 104, 3);
-addScore('wario', 94, 4);
-addScore('richard', 81, 5);
-addScore('pamela', 109, 6);
-addScore('erika', 106, 7);
+displayScores()
+refBtn.addEventListener('click', displayScores)
 
-const list = scoresCl.allScores;
-list.forEach((s, i) => {
-  const ids = document.getElementById(`id${i + 1}`);
-  if (i % 2 === 0) { ids.style.backgroundColor = 'rgba(255, 229, 111, 0.6)'; }
+addScoreBtn.addEventListener('click', (ev) => {
+  ev.preventDefault();
+  addScore()
 });

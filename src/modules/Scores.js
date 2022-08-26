@@ -17,6 +17,10 @@ class Scores {
     return this.Scores;
   }
 
+  cleanScores() {
+    this.Scores = []
+  }
+
   changeVal(ind, val) {
     this.allScores[ind].val = val;
   }

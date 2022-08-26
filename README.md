@@ -31,6 +31,26 @@ npm install
 ```
 All the necessary packages will be installed with the command above
 
+## Initialization
+
+The creation of the game ID was accomplished running the following code:
+
+```
+fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games', {
+  method: 'POST',
+  body: JSON.stringify({
+    "name": "Alpha game"
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+
+// {result: 'Game with ID: TSK9ITkTv5Aof6D0OyN3 added.'}
+```
+
 ## Author
 
 👤 **Author**
