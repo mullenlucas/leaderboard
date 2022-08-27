@@ -8,7 +8,10 @@
 }
 
 body {
-  background-color: rgba(252, 246, 220, 0.6);
+  /* background-color: rgba(252, 246, 220, 0.6); */
+  background-image: url('imgs/trophy-bkgd.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
   font-family: var(--font-lato);
   height: 100%;
   display: flex;
@@ -17,6 +20,7 @@ body {
 
 header {
   border-bottom: 1.4px solid rgb(77, 77, 77);
+  background-color: rgba(242,254,254,0.5);
 }
 
 h1 {
@@ -30,11 +34,17 @@ h1 {
 #main-sec {
   display: flex;
   flex-direction: row;
+  background-color: rgba(0, 0, 0, 0.63);
   gap: 24px;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: center;
   box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
   padding: 2rem;
+}
+
+#scores, #add-scores {
+  background-color: rgba(155,155,155,0.5);
+  width: 42%;
 }
 
 #rec-scores {
@@ -43,6 +53,11 @@ h1 {
   align-items: center;
   height: 100%;
   justify-content: space-between;
+  padding: 0 1rem;
+}
+
+#add-scores > * {
+  padding: 0 1rem;
 }
 
 #add-score-form {
@@ -62,22 +77,26 @@ h1 {
 }
 
 .btn {
-  background-color: #dae4ff;
+  background-color: rgb(56, 122, 171);
   border: none;
-  color: #000;
-  padding: 6px 12px;
+  color: white;
+  padding: 4% 6%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  box-shadow: 4px 2px rgba(0, 54, 75, 0.2);
+  transition-duration: 0.4s;
+}
+
+.btn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 16px 42px 0 rgba(0,0,0,0.19);
 }
 
 .btn:active {
   background-color: #3e8e41;
-  box-shadow: 2px 1px #666;
-  transform: translateX(4px);
+  box-shadow: 2px 1px rgba(0,0,0,0.24);
+  transform: translateX(1px);
   transform: translateY(2px);
 }
 
@@ -88,6 +107,7 @@ h1 {
 .inp {
   border: none;
   border-bottom: 1px solid rgb(77, 77, 77);
+  border-radius: 4px;
   padding: 6px 12px;
   font-size: 16px;
   margin-bottom: 12px;
@@ -95,4 +115,16 @@ h1 {
 
 .li-score {
   padding: 2px 4px;
+}
+
+@media screen and (max-width: 768px) {
+  #main-sec {
+    flex-direction: column;
+  }
+  #scores, #add-scores {
+    width: 100%;
+  }
+  #add-score-form {
+    gap: 12px;
+  }
 }
