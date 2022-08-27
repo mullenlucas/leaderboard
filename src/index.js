@@ -33,6 +33,7 @@ const displayScores = async () => {
   ulScores.innerHTML = '';
   scoresCl.allScores.forEach((e, i) => {
     const li = document.createElement('li');
+    li.setAttribute('class', 'li-score');
     li.setAttribute('id', `id${i}`);
     li.innerText = `${e.user}: ${e.score}`;
     ulScores.appendChild(li);

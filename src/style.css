@@ -1,24 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika&display=swap');
 
 :root {
   --font-lato: 'Lato', sans-serif;
+  --font-indie: 'Signika', sans-serif;
 }
 
 body {
-  background-color: rgba(255, 245, 202, 0.6);
+  background-image: url('imgs/trophy-bkgd.jpg');
+  background-repeat: repeat-y;
+  background-size: 100%;
   font-family: var(--font-lato);
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+header {
+  border-bottom: 1.4px solid rgb(77, 77, 77);
+  background-color: rgba(242, 254, 254, 0.5);
+}
+
+h1 {
+  font-family: var(--font-indie);
+  font-size: 2rem;
+  padding-left: 3rem;
+  margin-top: 2rem;
+  text-shadow: 2px 2px 4px rgba(168, 0, 0, 0.39);
+}
+
+h2 {
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.39);
 }
 
 #main-sec {
   display: flex;
   flex-direction: row;
+  background-color: rgba(0, 0, 0, 0.63);
   gap: 24px;
   align-items: flex-start;
   justify-content: center;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+}
+
+#scores,
+#add-scores {
+  background-color: rgba(155, 155, 155, 0.5);
+  width: 42%;
 }
 
 #rec-scores {
@@ -26,6 +55,12 @@ body {
   flex-direction: row;
   align-items: center;
   height: 100%;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+#add-scores > * {
+  padding: 0 1rem;
 }
 
 #add-score-form {
@@ -44,7 +79,58 @@ body {
   gap: 2px;
 }
 
+.btn {
+  background-color: rgb(56, 122, 171);
+  border: none;
+  color: white;
+  padding: 4% 6%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.btn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 16px 42px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn:active {
+  background-color: #3e8e41;
+  box-shadow: 2px 1px rgba(0, 0, 0, 0.24);
+  transform: translateX(1px);
+  transform: translateY(2px);
+}
+
 #btn-sub {
-  width: 24%;
   align-self: flex-end;
+}
+
+.inp {
+  border: none;
+  border-bottom: 1px solid rgb(77, 77, 77);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.li-score {
+  padding: 2px 4px;
+}
+
+@media screen and (max-width: 768px) {
+  #main-sec {
+    flex-direction: column;
+  }
+
+  #scores,
+  #add-scores {
+    width: 100%;
+  }
+
+  #add-score-form {
+    gap: 12px;
+  }
 }
