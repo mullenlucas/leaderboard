@@ -8,9 +8,8 @@
 }
 
 body {
-  /* background-color: rgba(252, 246, 220, 0.6); */
   background-image: url('imgs/trophy-bkgd.jpg');
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-size: 100%;
   font-family: var(--font-lato);
   height: 100%;
@@ -29,6 +28,10 @@ h1 {
   padding-left: 3rem;
   margin-top: 2rem;
   text-shadow: 2px 2px 4px rgba(168, 0, 0, 0.39);
+}
+
+h2 {
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.39);
 }
 
 #main-sec {
